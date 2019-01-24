@@ -6,10 +6,18 @@ module Alxmas
 
       # Написать свою функцию my_each
       def my_each
+        for i in self do
+          yield(i)
+        end
       end
 
       # Написать свою функцию my_map
       def my_map
+        result = MyArray.new
+        for i in self do
+          result << yield(i)
+        end
+        result
       end
 
       # Написать свою функцию my_compact
