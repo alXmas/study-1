@@ -5,18 +5,18 @@ module Alxmas
       # film["name"], film["rating_kinopoisk"], film["rating_imdb"],
       # film["genres"], film["year"], film["access_level"], film["country"]
       def rating(array)
+        rating = 0
         films = array.select do |film|
-          film['rating_kinopoisk'].to_f.positive? &&
+          rating += film['rating_kinopoisk'].to_f if film['rating_kinopoisk'].to_f.positive? &&
               film['country'].to_s.split(',').count >= 2
         end
-        rating = films.reduce(0) {|acc, film| acc + film['rating_kinopoisk'].to_f}
         rating/films.count
       end
 
       def chars_count(films, threshold)
-        films.select { |film| film['rating_kinopoisk'].to_f >= threshold &&
-            film['name'].include?('и') }
-            .count
+        films.count do |film| film['rating_kinopoisk'].to_f >= threshold &&
+            film['name'].include?('и')
+        end
         end
       end
     end
