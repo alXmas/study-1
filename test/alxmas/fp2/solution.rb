@@ -6,19 +6,40 @@ module Alxmas
 
       # Написать свою функцию my_each
       def my_each
+        for i in self do
+          yield(i)
+        end
       end
 
       # Написать свою функцию my_map
       def my_map
+        result = MyArray.new
+        for i in self do
+          result << yield(i)
+        end
+        result
       end
 
       # Написать свою функцию my_compact
       def my_compact
-      end
+        result = MyArray.new
+        for i in self do
+          result << i unless i.nil?
+        end
+        result
+        end
 
-      # Написать свою функцию my_reduce
-      def my_reduce
+      def my_reduce(acc = nil)
+        my_each do |elem|
+          if acc.nil?
+            acc = self[0]
+            next
+          end
+            acc = yield(acc,elem)
+        end
+        acc
       end
     end
   end
 end
+
