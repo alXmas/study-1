@@ -27,7 +27,7 @@ module Alxmas
           result << i unless i.nil?
         end
         result
-        end
+      end
 
       def my_reduce(acc = nil)
         my_each do |elem|
@@ -35,11 +35,10 @@ module Alxmas
             acc = self[0]
             next
           end
-            acc = yield(acc,elem)
+          acc = yield(acc, elem)
         end
         acc
       end
     end
   end
 end
-
