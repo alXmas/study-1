@@ -4,7 +4,6 @@ require_relative './solution.rb'
 class Alxmas::ArraysTest < Minitest::Test
   # Заменить все положительные элементы целочисленного массива на максимальное значение элементов массива.
   def test_replace
-    skip
     array = [3, 2, -8, 4, 100, -6, 7, 8, -99]
     new_array = Alxmas::Arrays.replace(array)
 
@@ -14,7 +13,6 @@ class Alxmas::ArraysTest < Minitest::Test
   # Реализовать бинарный поиск
   # Функция должна возвращать индекс элемента
   def test_bin_search
-    skip
     assert Alxmas::Arrays.search([1], 900) == -1
     assert Alxmas::Arrays.search([1], 1) == 0
     assert Alxmas::Arrays.search([], 900) == -1
