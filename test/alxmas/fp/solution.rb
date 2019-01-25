@@ -14,9 +14,8 @@ module Alxmas
       end
 
       def chars_count(films, threshold)
-        films.count do |film| film['rating_kinopoisk'].to_f >= threshold &&
-            film['name'].include?('и')
-        end
+        films.count { |film| film['rating_kinopoisk'].to_f >= threshold &&
+            film['name'].include?('и') }
         end
       end
     end
